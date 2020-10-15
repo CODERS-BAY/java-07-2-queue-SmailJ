@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class QueueTest {
 
     @Test
-    public void queueTest() throws QueueTooSmall {
+    public void queueTest() throws QueueTooSmallException {
         Queue myQueue = new Queue();
         myQueue.enqueue(1);
         assertTrue(myQueue.size() == 1);
@@ -17,7 +17,7 @@ public class QueueTest {
     }
 
     @Test
-    public void sizeTest() throws QueueTooSmall {
+    public void sizeTest() throws QueueTooSmallException {
         Queue myQueue = new Queue();
         myQueue.enqueue(1);
         myQueue.enqueue(2);
@@ -29,7 +29,7 @@ public class QueueTest {
     }
 
     @Test
-    public void dequeueTest() throws QueueTooSmall {
+    public void dequeueTest() throws QueueTooSmallException {
         Queue myQueue = new Queue();
         myQueue.enqueue(1);
         myQueue.enqueue(2);
@@ -41,10 +41,10 @@ public class QueueTest {
     }
 
     @Test
-    public void errorTest() throws QueueTooSmall {
+    public void errorTest() throws QueueTooSmallException {
         Queue myQueue = new Queue();
-        assertThrows(QueueTooSmall.class, () -> {
-            myQueue.size();
+        assertThrows(QueueTooSmallException.class, () -> {
+            assertTrue(myQueue.dequeue() == 0);
         });
 
     }

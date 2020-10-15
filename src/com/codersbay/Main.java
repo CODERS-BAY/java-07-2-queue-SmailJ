@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws QueueTooSmall {
+    public static void main(String[] args) throws QueueTooSmallException {
         Scanner sc = new Scanner(System.in);
         Queue queue = new Queue();
         int temp;

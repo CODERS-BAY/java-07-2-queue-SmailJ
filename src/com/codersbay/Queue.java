@@ -11,24 +11,26 @@ public class Queue {
         ques.add(newElement);
     }
 
-    public int size() throws QueueTooSmall {
-        if (ques.size() == 0){
-            throw new QueueTooSmall("Error, empty list");
-        }
-
+    public int size() {
         int listSize;
         listSize = ques.size();
         return listSize;
     }
 
-    public int dequeue() {
+    public int dequeue() throws QueueTooSmallException {
+        if (ques.size() == 0){
+            throw new QueueTooSmallException("Error, empty list");
+        }
         int firstNumber;
         firstNumber = ques.get(0);
-        ques.remove(firstNumber);
+        ques.remove(0);
         return firstNumber;
     }
 
-    public int[] dequeue(int n) {
+    public int[] dequeue(int n) throws QueueTooSmallException {
+        if (ques.size() == 0){
+            throw new QueueTooSmallException("Error, empty list");
+        }
         int[] nums = new int[ques.size()];
         for (int i = 0; i < n; i++) {
             nums[i] = ques.get(0);
